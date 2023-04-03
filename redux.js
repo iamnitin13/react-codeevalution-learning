@@ -5,6 +5,9 @@ const createStore = redux.legacy_createStore;
 const applyMiddleware = redux.applyMiddleware;
 const combineReducer = redux.combineReducers;
 
+// bind action creator
+const actionCreatoreBind = redux.bindActionCreators;
+
 //logger middleware
 const logger = reduxLogger.createLogger();
 
@@ -80,14 +83,22 @@ console.log("Initial state", store.getState());
 const unsubscribe = store.subscribe(() => {});
 
 //dispatching action;using action creators
-store.dispatch(buyCake());
-store.dispatch(buyCake());
-store.dispatch(buyCake());
+// store.dispatch(buyCake());
+// store.dispatch(buyCake());
+// store.dispatch(buyCake());
 
-// when actions dispatched both reducer recive action one ignore & other execute.
+// // when actions dispatched both reducer recive action one ignore & other execute.
 
-// dispatching action;for buying icecream
-store.dispatch(buyIceCream());
-store.dispatch(buyIceCream());
+// // dispatching action;for buying icecream
+// store.dispatch(buyIceCream());
+// store.dispatch(buyIceCream());
+
+// using bindActionCreatore to dispatch action instead of using dispacth method from store;
+//it bind our action creator to store dispacth method; it accept an object whose value is the action creatore and return an object with same key
+// & every action creator is wrapped with dipacth call; so they can be invoked directly
+const actions = actionCreatoreBind({ buyCake, buyIceCream }, store.dispatch);
+
+actions.buyCake();
+actions.buyIceCream();
 //unsubscribng store subscription
 unsubscribe();
