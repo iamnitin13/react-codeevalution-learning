@@ -1,18 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  cartCount: 0,
+  cartData: [],
 };
 
 const ecomSlice = createSlice({
   name: "ecom",
   initialState,
   reducers: {
-    addToCart: (state) => {
-      state.cartCount += 1;
+    addToCart: (state, action) => {
+      state.cartData.push(action.payload);
     },
-    removeCart: (state) => {
-      state.cartCount -= 1;
+    removeToCart: (state, action) => {
+      const index = state.cartData.findIndex(
+        (data) => data.id === action.payload
+      );
+      if (index > -1) {
+        state.cartData.splice(index, 1);
+      }
+    },
+    clearToCart: (state) => {
+      state.cartData = [];
     },
   },
   extraReducers: (builder) => {
@@ -22,5 +30,5 @@ const ecomSlice = createSlice({
   },
 });
 
-export const { addToCart, removeCart } = ecomSlice.actions;
+export const { addToCart, removeToCart, clearToCart } = ecomSlice.actions;
 export default ecomSlice.reducer;
