@@ -18,3 +18,6 @@
     #2.9 ci – continuous integration related
     #2.10 build – changes that affect the build system or external dependencies
     #2.11 revert – reverts a previous commi
+
+
+3. git remote set-url origin <repo_url> // used to set the new url to the local
