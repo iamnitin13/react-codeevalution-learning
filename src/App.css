@@ -11,3 +11,9 @@ img#product:hover {
 div#selected::-webkit-scrollbar {
   display: none;
 }
+
+@keyframes spinner {
+  100% {
+    transform: rotate(360deg);
+  }
+}

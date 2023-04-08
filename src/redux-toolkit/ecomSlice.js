@@ -5,13 +5,13 @@ const initialState = {
 };
 
 const ecomSlice = createSlice({
-  name: "ecom",
+  name: "ecomSlice",
   initialState,
   reducers: {
     addToCart: (state, action) => {
       state.cartData.push(action.payload);
     },
-    removeToCart: (state, action) => {
+    removeFromCart: (state, action) => {
       const index = state.cartData.findIndex(
         (data) => data.id === action.payload
       );
@@ -19,16 +19,11 @@ const ecomSlice = createSlice({
         state.cartData.splice(index, 1);
       }
     },
-    clearToCart: (state) => {
+    emptyCart: (state) => {
       state.cartData = [];
     },
   },
-  extraReducers: (builder) => {
-    // builder.addCase("", (state, action) => {});
-    // builder.addCase("", (state, action) => {});
-    // builder.addCase("", (state, action) => {});
-  },
 });
 
-export const { addToCart, removeToCart, clearToCart } = ecomSlice.actions;
+export const { addToCart, removeFromCart, emptyCart } = ecomSlice.actions;
 export default ecomSlice.reducer;

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import { clearToCart } from "../redux-toolkit/ecomSlice";
+import { emptyCart } from "../redux-toolkit/ecomSlice";
 
 const Article = ({ cart }) => {
   const dispatch = useDispatch();
@@ -158,7 +158,7 @@ const Article = ({ cart }) => {
             fontSize: "18px",
             margin: "1rem 0",
           }}
-          onClick={() => dispatch(clearToCart())}
+          onClick={() => dispatch(emptyCart())}
         >
           CLEAR
         </button>
