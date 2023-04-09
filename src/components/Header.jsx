@@ -9,7 +9,7 @@ const Header = () => {
       style={{
         height: "70px",
         background: "#fff",
-        padding: "0.8rem 2rem",
+        padding: "0.8rem 5rem",
         textAlign: "right",
         verticalAlign: "middle",
         boxShadow: "0 2px 4px lightgray",
@@ -22,7 +22,7 @@ const Header = () => {
       <span
         style={{
           position: "absolute",
-          left: "50px",
+          left: "80px",
           top: "20px",
           fontSize: "24px",
           fontWeight: 800,
@@ -33,7 +33,7 @@ const Header = () => {
       <img
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNg5aOdsSBCa_gFagFSoyubuFdw-Ug1nNG8hP0-7pxGQ&usqp=CAU&ec=48665699"
         alt="cart"
-        style={{ height: "50px" }}
+        style={{ height: "50px", position: "relative", right: "0px" }}
       />
       {cartData.length ? (
         <span
@@ -41,7 +41,7 @@ const Header = () => {
             verticalAlign: "top",
             position: "absolute",
             top: "11px",
-            right: "43px",
+            right: "98px",
             background: "#f5f5f7",
             borderRadius: "100%",
             width: "20px",

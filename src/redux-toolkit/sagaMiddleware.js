@@ -1,5 +1,5 @@
 import { all, call, put, takeEvery } from "redux-saga/effects";
-import products from "../product/product.json";
+import ecom from "../product/product.json";
 import { fetchProduct, getError, getProduct } from "./productSlice";
 
 /**
@@ -17,7 +17,7 @@ const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 function* fetchProducts() {
   try {
     yield call(delay, 1000); //{CALL:{fn:delay,args:1000}} //call is an side-effect provide by saga for calling an API or any function
-    yield put(getProduct(products)); // {PUT:{type:'product/getProduct'}} // call is an side-effect provide by saga for dispatching an action.
+    yield put(getProduct(ecom.products)); // {PUT:{type:'product/getProduct'}} // call is an side-effect provide by saga for dispatching an action.
   } catch (error) {
     yield put(getError(error.message));
   }
