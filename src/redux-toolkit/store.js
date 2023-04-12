@@ -14,4 +14,4 @@ export const store = configureStore({
   middleware: [sagaMiddleware],
 });
 
-sagaMiddleware.run(rootSaga);
+sagaMiddleware.run(rootSaga); //will start the root Saga and begin listening for actions.

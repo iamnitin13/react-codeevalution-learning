@@ -15,6 +15,7 @@ const delay = (ms) => new Promise((res) => setTimeout(res, ms));
  */
 
 function* fetchProducts() {
+  // When a Saga yields an Effect object, the middleware intercepts it and executes the corresponding side-effect
   try {
     yield call(delay, 1000); //{CALL:{fn:delay,args:1000}} //call is an side-effect provide by saga for calling an API or any function
     yield put(getProduct(ecom.products)); // {PUT:{type:'product/getProduct'}} // call is an side-effect provide by saga for dispatching an action.
@@ -33,3 +34,15 @@ export default function* rootSaga() {
   yield all([watchFetchProducts()]); // all is afunction that run multipl saga at a same time , waiting for all of them to completed before continuing;
   // usefull for calling multiple api or performing multiple async op at same time
 }
+
+/**
+ * Effect objects can represent various types of side-effects, such as:
+
+calling a function (synchronous or asynchronous) using call()
+dispatching an action using put()
+waiting for a specified time period using delay()
+handling errors using takeEvery(), takeLatest(), or takeLeading()
+creating a task to run a child Saga using fork()
+cancelling a task using cancel()
+
+ */
