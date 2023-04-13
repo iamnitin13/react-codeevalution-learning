@@ -30,7 +30,25 @@ function* watchFetchProducts() {
   // takeLatest is smiliar to takeEvery; but it run on the latest dipatch and cancel the previous dispatch execution
 }
 
+/**
+ * api call using fetch
+ */
+
+// function* fetchPost() {
+//   try {
+//     const result = yield fetch("https://jsonplaceholder.typicode.com/posts");
+//     const data = yield result.json();
+//     yield put(getPost(data));
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+// function* watchfetchPost() {
+//   yield takeLatest(loadPost.type, fetchPost);
+// }
+
 export default function* rootSaga() {
+  // yield all([watchFetchProducts(), watchfetchPost()]);
   yield all([watchFetchProducts()]); // all is afunction that run multipl saga at a same time , waiting for all of them to completed before continuing;
   // usefull for calling multiple api or performing multiple async op at same time
 }

@@ -24,6 +24,7 @@ const Main = () => {
 
   useEffect(() => {
     dispatch(fetchProduct());
+    // dispatch(loadPost());
   }, [dispatch]);
 
   return (

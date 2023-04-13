@@ -13,6 +13,9 @@ const productSlice = createSlice({
     fetchProduct: (state) => {
       state.loading = true;
     },
+    // loadPost: (state) => {
+    //   state.loading = true;
+    // },
     getProduct: (state, action) => {
       state.loading = false;
       state.products = action.payload;
@@ -23,6 +26,9 @@ const productSlice = createSlice({
       state.products = [];
       state.error = action.payload;
     },
+    // getPost: (state, action) => {
+    //   console.log("27", action);
+    // },
   },
   extraReducers: (builder) => {
     // builder.addCase("", (state, action) => {});
@@ -31,5 +37,7 @@ const productSlice = createSlice({
   },
 });
 
+// export const { fetchProduct, getProduct, getError, getPost, loadPost } =
+//   productSlice.actions;
 export const { fetchProduct, getProduct, getError } = productSlice.actions;
 export default productSlice.reducer;
