@@ -1,4 +1,4 @@
-$max-width: 1280px;
+$max-width: 100vw;
 
 * {
   box-sizing: border-box;
@@ -13,35 +13,87 @@ body {
 
 #root {
   max-width: $max-width;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: auto;
+  padding: 2rem 0;
   text-align: center;
+
+  .App {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 3rem 1rem;
+  }
 
   .form-container {
     box-shadow: 0px 2px 16px #efebeb;
     width: 30vw;
     padding: 2rem 3rem;
+    margin-inline: 1.5rem;
     form {
       display: flex;
       flex-direction: column;
+
       label {
         text-align: start;
         padding-block: 0.5rem;
       }
-      input {
+
+      input,
+      textarea {
         border-radius: 10px;
         height: 3rem;
         padding: 0;
         padding-left: 1rem;
         border: none;
         font-size: 1rem;
+        margin-block: 0.5rem;
       }
-      button {
+
+      input[type="checkbox"] {
+        margin-right: 8px;
+        width: 20px;
+        height: 20px;
+      }
+
+      input[type="number"]::-webkit-inner-spin-button,
+      ::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      textarea {
+        height: 5rem;
+        padding: 0.8rem 1rem;
+      }
+
+      select {
+        height: 40px;
+        padding: 0 0.8rem;
+        -webkit-appearance: none;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      button[type="reset"],
+      button[type="submit"] {
         margin-block: 2rem;
         height: 4rem;
-        border-radius: 20px;
+        border-radius: 10px;
         cursor: pointer;
         font-size: 1rem;
+        width: auto;
+      }
+
+      .flex {
+        display: flex;
+        flex-wrap: wrap;
+
+        button[type="reset"] {
+          flex: 1;
+          margin-right: 0.5rem;
+        }
+        & > button[type="submit"] {
+          flex: 2;
+        }
       }
 
       .errMessage {
@@ -55,6 +107,13 @@ body {
           font-size: 16px;
           padding-right: 2px;
         }
+      }
+
+      .checkbox-input {
+        display: flex;
+        align-items: center;
+        letter-spacing: 1px;
+        margin-top: 20px;
       }
     }
   }

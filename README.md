@@ -10,3 +10,5 @@ Browser built-in HTML input validation are only supported inside browser, hard t
 the built-in validation are like. required,max,min,maxLength,pattern-- any regex expression
 
 formik also help in stay organising the code.
+
+#vite started: `npm create vite@latest`
